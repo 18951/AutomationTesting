@@ -19,7 +19,7 @@ public class RegisterPage {
         // Wait for the page to load
         try {
             Thread.sleep(3000); // Wait for 3 seconds
-        } catch (InterruptedException e) {
+        } catch (InterruptedException _) {
 
         }
             // Find User Icon
