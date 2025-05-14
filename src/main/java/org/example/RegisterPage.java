@@ -52,14 +52,14 @@ public class RegisterPage {
             WebElement newTabButton = driver.findElement(By.id("new-tab-button"));
             newTabButton.click();
 
-            /* Switch to the new tab
+            \* Switch to the new tab*\
             String originalWindow = driver.getWindowHandle();
             for(String handle1 : driver.getWindowHandles()){
                 driver.switchTo().window(handle1);
 
             }
             driver.switchTo().window(originalWindow);
-             */
+             
         /* switch to alert
         WebElement alertButton = driver.findElement(By.id("alert-button"));
         alertButton.click();
