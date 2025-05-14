@@ -1,13 +1,9 @@
 package org.example;
-
-import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.List;
-import java.util.Set;
 
 public class RegisterPage {
     public static void main(String[] args) {
@@ -52,14 +48,14 @@ public class RegisterPage {
             WebElement newTabButton = driver.findElement(By.id("new-tab-button"));
             newTabButton.click();
 
-            \* Switch to the new tab*\
+            /* Switch to the new tab
             String originalWindow = driver.getWindowHandle();
             for(String handle1 : driver.getWindowHandles()){
                 driver.switchTo().window(handle1);
 
             }
             driver.switchTo().window(originalWindow);
-             
+             */
         /* switch to alert
         WebElement alertButton = driver.findElement(By.id("alert-button"));
         alertButton.click();
