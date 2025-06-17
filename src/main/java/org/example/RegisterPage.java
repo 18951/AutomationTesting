@@ -10,77 +10,93 @@ public class RegisterPage {
         // Set the path to the ChromeDriver executable
         WebDriver driver = new ChromeDriver();
 
-        driver.get("http://127.0.0.1:5501/service_booking_platform/index.html");
-        // load the page
+        driver.get("http://127.0.0.1:5500/index.html");
+        // Maximize the browser window
+        driver.manage().window().maximize();
         // Wait for the page to load
         try {
-            Thread.sleep(3000); // Wait for 3 seconds
-        } catch (InterruptedException _) {
-
+            Thread.sleep(3000); // Adjust the sleep time as needed
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
+        // Profile Section
+
             // Find User Icon
             WebElement userIcon = driver.findElement(By.id("profileButton"));
             userIcon.click();
-            // Find the register button and click it
+
+            // Find the register button and fill the registration form
             WebElement registerButton = driver.findElement(By.id("register"));
             registerButton.click();
+            // name
             WebElement usernameField = driver.findElement(By.id("name"));
             usernameField.click();
             usernameField.sendKeys("testuser");
+            // mobile number
             WebElement MobileNumberField = driver.findElement(By.id("mobile"));
             MobileNumberField.click();
-            MobileNumberField.sendKeys("1111111111");
+            MobileNumberField.sendKeys("1111111116");
+            // email
             WebElement emailField = driver.findElement(By.id("email"));
             emailField.click();
             emailField.sendKeys("test@gmail.com");
+            // get OTP
             WebElement GetOTPButton = driver.findElement(By.id("getOtpBtn"));
             GetOTPButton.click();
-            // Click verify&login button
-            //fill otp from console
-            String otp = System.console().readLine();
-            WebElement otpField = driver.findElement(By.className("otp-inputs"));
-            otpField.click();
-            otpField.sendKeys(otp);
-
-
+            // Verify OTP
             WebElement verifyButton = driver.findElement(By.id("verifyOtpBtn"));
             verifyButton.click();
-            WebElement newTabButton = driver.findElement(By.id("new-tab-button"));
-            newTabButton.click();
 
-            /* Switch to the new tab
-            String originalWindow = driver.getWindowHandle();
-            for(String handle1 : driver.getWindowHandles()){
-                driver.switchTo().window(handle1);
+            // Click on again user icon
+            userIcon.click();
 
-            }
-            driver.switchTo().window(originalWindow);
-             */
-        /* switch to alert
-        WebElement alertButton = driver.findElement(By.id("alert-button"));
-        alertButton.click();
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
-         */
-
-        /* Execute JavaScript code
-        WebElement modelButton = driver.findElement(By.id("model-button"));
-        modelButton.click();
-        WebElement closeButton = driver.findElement(By.id("close-button"));
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();" closeButton);
-
-         */
-
-        /* Drag and Drop
-        WebElement image = driver.findElement(By.id("image"));
-        WebElement drop-box = driver.findElement(By.id("drop-box"));
-        actions.dragAndDrop(image, drop-box).build().perform();
-
-         */
+            // click on my profile section
+            WebElement myProfileButton = driver.findElement(By.id("myprofile"));
+            myProfileButton.click();
+            // click edit profile button
+            WebElement editProfileButton = driver.findElement(By.id("editProfileBtn"));
+            editProfileButton.click();
 
 
 
+            // Fill the address field
+            WebElement addressField = driver.findElement(By.id("profileAddress"));
+            addressField.click();
+            addressField.sendKeys("123 Test Street, Test City, TC 12345");
+
+        // upload profile picture
+        WebElement profilePictureInput = driver.findElement(By.id("avatarInput"));
+        // Update with your image path
+        profilePictureInput.sendKeys("D:\\AutomationTesting\\src\\main\\java\\org\\example\\Person.jpg");
+
+
+            // Click on save button
+            WebElement saveButton = driver.findElement(By.id("editProfileBtn"));
+            saveButton.click();
+
+            // click on cancle button
+        WebElement cancleButton = driver.findElement(By.xpath("//*[@id=\"profileForm\"]/div[5]/button[2]"));
+            cancleButton.click();
+
+            // Search Service on home page
+        WebElement serachService = driver.findElement(By.id("searchInput"));
+            serachService.click();
+
+            // Enter search query
+            serachService.sendKeys("plumber");
+
+            // click on logout button
+            WebElement logoutButton = driver.findElement(By.id("logout"));
+            logoutButton.click();
+
+            // Close the browser
             driver.quit();
+        //successfully tested
+            System.out.println(" Tested Successfully.");
+
+
+
+
         }
     }
