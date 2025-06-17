@@ -79,16 +79,74 @@ public class RegisterPage {
         WebElement cancleButton = driver.findElement(By.xpath("//*[@id=\"profileForm\"]/div[5]/button[2]"));
             cancleButton.click();
 
+            // Check Service availability in the area using pin code
+        WebElement pinCodeField = driver.findElement(By.id("pincodeInput"));
+            pinCodeField.click();
+            pinCodeField.sendKeys("452015");
+            WebElement checkAvailabilityButton = driver.findElement(By.xpath("/html/body/header/nav/div[2]/div[2]/div/div"));
+            checkAvailabilityButton.click();
+
             // Search Service on home page
-        WebElement serachService = driver.findElement(By.id("searchInput"));
-            serachService.click();
+        WebElement searchService = driver.findElement(By.id("searchInput"));
+            searchService.click();
 
             // Enter search query
-            serachService.sendKeys("plumber");
+            searchService.sendKeys("plumber");
+            // click on plumber service
+        WebElement clickPlumber = driver.findElement(By.xpath("/html/body/header/nav/div[2]/div[1]/div/div"));
+            clickPlumber.click();
+            // add multiple services
+        // plumber service
+        WebElement AddServiceButton1 = driver.findElement(By.xpath("//*[@id=\"mostBookedCarousel\"]/div[2]/div[3]/button"));
+            AddServiceButton1.click();
+        // Electric service
+        WebElement AddServiceButton2 = driver.findElement(By.xpath("//*[@id=\"mostBookedCarousel\"]/div[1]/div[3]/button"));
+            AddServiceButton2.click();
+            // House Cleaning service
+        WebElement AddServiceButton3 = driver.findElement(By.xpath("//*[@id=\"mostBookedCarousel\"]/div[3]/div[3]/button"));
+            AddServiceButton3.click();
 
-            // click on logout button
-            WebElement logoutButton = driver.findElement(By.id("logout"));
-            logoutButton.click();
+        // click on view cart button
+            WebElement viewCartButton = driver.findElement(By.id("cartButton"));
+            viewCartButton.click();
+
+            // click on proceed to checkout button
+            WebElement continueButton = driver.findElement(By.id("cartCheckout"));
+            continueButton.click();
+
+            // click date
+            WebElement dateField = driver.findElement(By.xpath("//*[@id=\"dateOptions\"]/div[1]"));
+            dateField.click();
+            // click time
+            WebElement timeField = driver.findElement(By.xpath("//*[@id=\"timeOptions\"]/div[2]"));
+            timeField.click();
+            // apply coupon code
+            WebElement couponCodeField = driver.findElement(By.id("couponCode"));
+            couponCodeField.click();
+            couponCodeField.sendKeys("CAREMATE100");
+            // click on apply coupon button
+            WebElement applyCouponButton = driver.findElement(By.id("applyCouponBtn"));
+            applyCouponButton.click();
+
+            // click on place order button
+            WebElement confirmButton = driver.findElement(By.id("confirmBookingBtn"));
+            confirmButton.click();
+
+            // Wait for loading payment page
+            try {
+                Thread.sleep(1000); // Adjust the sleep time as needed
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            // Click on pay now button
+        WebElement UPIselect = driver.findElement(By.id("//*[@id=\"nav-sidebar\"]/div[1]/label[2]/div/div"));
+            UPIselect.click();
+            // enter upi id
+            WebElement upiIdField = driver.findElement(By.id("//*[@id=\"main-stack-container\"]/div/div/div/div/div[2]/div/div/div[2]/div[2]/div/div/form/label/input"));
+            upiIdField.click();
+            upiIdField.sendKeys("testuser@ybl");
+
+
 
             // Close the browser
             driver.quit();
