@@ -25,7 +25,6 @@ public class CaremateWebTesting {
             e.printStackTrace();
         }
 
-        // Profile Section
 
         // Find the register button and fill the registration form
         // Find User Icon
